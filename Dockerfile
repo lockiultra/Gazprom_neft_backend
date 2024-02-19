@@ -3,8 +3,13 @@ FROM python:3.11-alpine
 EXPOSE 8000
 WORKDIR /app
 
-COPY . /app/
+RUN pip install --upgrade pip
+RUN apk add --no-cache gcc musl-dev libffi-dev
+RUN pip install poetry
 
-RUN pip install -r requirements.txt
+COPY . /app
 
-CMD ['uvicorn', 'main:app', '--port', '8000']
+RUN poetry config virtualenvs.create false
+RUN poetry install --no-interaction --no-ansi --no-dev
+
+CMD ["poetry", "run", "uvicorn", "main:app", "--port", "8000"]

@@ -1,14 +1,22 @@
-version: '3'
+version: '3.8'
 services:
-  app:
+  api:
     build: .
     ports:
       - 8000:8000
-  postgres:
-    image: postgres
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_USER=gneft_user
+      - POSTGRES_PASSWORD=gneft_pass
+      - POSTGRES_DB=gneft_db
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+  db:
+    image: postgres:16
     ports:
       - 5432:5432
     environment:
       - POSTGRES_USER=gneft_user
-      - POSTGRES_PASSWORD=gneft_password
-      - POSTGRES_DB=gneft_db  
+      - POSTGRES_PASSWORD=gneft_pass
+      - POSTGRES_DB=gneft_db

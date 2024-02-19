@@ -1,5 +1,5 @@
 DB_NAME = 'gneft_db'
 DB_USER = 'gneft_user'
 DB_PASS = 'gneft_pass'
-DB_HOST = '127.0.0.1'
+DB_HOST = 'db'
 DB_PORT = '5432'
