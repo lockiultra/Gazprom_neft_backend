@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "gazprom-neft-backend"
+version = "0.1.0"
+description = ""
+authors = ["lockiultra <lockiultra@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.109.2"
+sqlalchemy = "^2.0.27"
+uvicorn = "^0.27.1"
+psycopg2-binary = "^2.9.9"
+numpy = "^1.26.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
